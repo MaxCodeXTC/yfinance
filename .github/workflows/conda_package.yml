@@ -15,12 +15,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ macos-latest, windows-latest, ubuntu-latest ]
-#        os: [ windows-latest ]
-        python: [ '3.7', '3.8' ]
+        os: [ ubuntu-latest ]
+        python: [ '3.8' ]
 
     steps:
-      - name: Checkout empyrical-reloaded
+      - name: Checkout yfinance
         uses: actions/checkout@v2
 
       - name: Setup miniconda3
@@ -40,33 +39,9 @@ jobs:
 
       - name: store macos result
         uses: actions/upload-artifact@v2
-        if: ${{ matrix.os == 'macos-latest' }}
         with:
-          path: osx-64/*.tar.bz2
+          path: no-arch/*.tar.bz2
 
-      - name: store linux result
-        uses: actions/upload-artifact@v2
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-        with:
-          path: linux-64/*.tar.bz2
-
-      - name: store windows result
-        uses: actions/upload-artifact@v2
-        if: ${{ matrix.os == 'windows-latest' }}
-        with:
-          path: win-64/*.tar.bz2
-
-      - name: upload ${{ matrix.os }} result to anaconcda
-        if: ${{ matrix.python != '3.9'}}
-        env:
-          OS: ${{ matrix.os }}
+      - name: upload result to anaconcda
         run: |
-          if [ "$OS" == "ubuntu-latest" ] ; then
-            anaconda upload -l main -u ml4t linux-64/*.tar.bz2
-          else
-            if [ "$OS" == "macos-latest" ] ; then
-              anaconda upload -l main -u ml4t osx-64/*.tar.bz2
-           else
-              anaconda upload -l main -u ml4t win-64/*.tar.bz2
-            fi
-          fi
+            anaconda upload -l main -u ml4t no-arch/*.tar.bz2

@@ -1,5 +1,5 @@
-{% set name = "yfinance" %}
-{% set version = "0.1.58" %}
+{ % set name = "yfinance" % }
+  { % set version = "0.1.59" % }
 
 package:
   name: "{{ name|lower }}"
@@ -35,6 +35,10 @@ requirements:
 test:
   imports:
     - yfinance
+  deps:
+    pytest
+  commands:
+    pytest
 
 about:
   home: "https://github.com/ranaroussi/yfinance"
