@@ -37,11 +37,11 @@ jobs:
           conda install -n recipe conda-build conda-verify anaconda-client
           conda-build --output-folder . --python ${{ matrix.python }} conda/
 
-      - name: store macos result
+      - name: store result
         uses: actions/upload-artifact@v2
         with:
-          path: no-arch/*.tar.bz2
+          path: noarch/*.tar.bz2
 
       - name: upload result to anaconcda
         run: |
-            anaconda upload -l main -u ml4t no-arch/*.tar.bz2
+            anaconda upload -l main -u ml4t noarch/*.tar.bz2
