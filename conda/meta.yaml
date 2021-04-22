@@ -35,10 +35,6 @@ requirements:
 test:
   imports:
     - yfinance
-  requires:
-    - pytest
-  commands:
-    - pytest
 
 about:
   home: "https://github.com/ranaroussi/yfinance"
