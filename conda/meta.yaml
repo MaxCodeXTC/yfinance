@@ -35,10 +35,10 @@ requirements:
 test:
   imports:
     - yfinance
-  deps:
-    pytest
+  requires:
+    - pytest
   commands:
-    pytest
+    - pytest
 
 about:
   home: "https://github.com/ranaroussi/yfinance"
