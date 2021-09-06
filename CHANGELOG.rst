@@ -1,6 +1,27 @@
 Change Log
 ===========
 
+0.1.63
+------
+- Duplicates and missing rows cleanup
+
+0.1.62
+------
+- Added UserAgent to all requests (via ```utils.user_agent_headers```)
+
+0.1.61
+------
+- Switched to using ```query2.finance.yahoo.com```, which used HTTP/1.1
+
+0.1.60
+------
+- Gracefully fail on misc operations (options, auto/back adjustments, etc)
+- Added financial data to ```info()```
+- Using session headers
+- Get price even if open price not available
+- Argument added for silencing error printing
+- Merged PRs to fix some bugs
+
 0.1.59
 ------
 - Added custom requests session instance support in holders

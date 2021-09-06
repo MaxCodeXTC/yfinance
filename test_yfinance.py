@@ -6,7 +6,6 @@
 
 """
 Sanity check for most common library uses all working
-
 - Stock: Microsoft
 - ETF: Russell 2000 Growth
 - Mutual fund: Vanguard 500 Index fund
@@ -15,12 +14,13 @@ Sanity check for most common library uses all working
 """
 
 import yfinance as yf
-
+import unittest
 
 symbols = ['MSFT', 'IWO', 'VFINX', '^GSPC', 'BTC-USD']
 tickers = [yf.Ticker(symbol) for symbol in symbols]
 
-class TestTicker:
+
+class TestTicker(unittest.TestCase):
     def test_info_history(self):
         for ticker in tickers:
             # always should have info and history for valid symbols
@@ -29,14 +29,26 @@ class TestTicker:
 
     def test_attributes(self):
         for ticker in tickers:
-            # following should always gracefully handled, no crashes
-            ticker.cashflow
-            ticker.balance_sheet
-            ticker.financials
-            ticker.sustainability
+            ticker.isin
             ticker.major_holders
             ticker.institutional_holders
             ticker.mutualfund_holders
+            ticker.dividends
+            ticker.splits
+            ticker.actions
+            ticker.info
+            ticker.calendar
+            ticker.recommendations
+            ticker.earnings
+            ticker.quarterly_earnings
+            ticker.financials
+            ticker.quarterly_financials
+            ticker.balance_sheet
+            ticker.quarterly_balance_sheet
+            ticker.cashflow
+            ticker.quarterly_cashflow
+            ticker.sustainability
+            ticker.options
 
     def test_holders(self):
         for ticker in tickers:
@@ -44,6 +56,6 @@ class TestTicker:
             assert(ticker.major_holders is not None)
             assert(ticker.institutional_holders is not None)
 
-class TestTickers:
-    def test_nothing(self):
-        pass
+
+if __name__ == '__main__':
+    unittest.main()

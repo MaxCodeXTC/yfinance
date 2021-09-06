@@ -38,7 +38,7 @@ Yahoo! Finance market data downloader
 Ever since `Yahoo! finance <https://finance.yahoo.com>`_ decommissioned
 their historical data API, many programs that relied on it to stop working.
 
-**yfinance** aimes to solve this problem by offering a reliable, threaded,
+**yfinance** aims to solve this problem by offering a reliable, threaded,
 and Pythonic way to download historical market data from Yahoo! finance.
 
 
@@ -268,12 +268,7 @@ Install ``yfinance`` using ``pip``:
     $ pip install yfinance --upgrade --no-cache-dir
 
 
-Install ``yfinance`` using ``conda``:
-
-.. code:: bash
-
-    $ conda install -c ranaroussi yfinance
-
+To install ``yfinance`` using ``conda``, see `this <https://anaconda.org/ranaroussi/yfinance>`_.
 
 Requirements
 ------------
